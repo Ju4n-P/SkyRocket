@@ -4,8 +4,10 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config({path: './config/.env'});
 require('./config/db');
 const userRoutes = require('./routes/user.routes');
-const cors = require('cors');
+const postRoutes = require('./routes/post.routes');
 const {checkUser, requireAuth} = require('./middleware/auth.middleware');
+const cors = require('cors');
+
 const app = express();
 
 const corsOptions = {
@@ -30,8 +32,10 @@ app.get('/jwtid', requireAuth, (req, res) => {
 
 // routes
 app.use('/api/user', userRoutes);
+app.use('/api/post', postRoutes);
 
 // server
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);
+  console.log(`On mango url ${process.env.DB_USER_PASS}`);
 })
