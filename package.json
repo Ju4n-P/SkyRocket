@@ -4,22 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ju4n-P/SkyRocket.git"
+    "start": "nodemon server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ju4n-P/SkyRocket/issues"
-  },
-  "homepage": "https://github.com/Ju4n-P/SkyRocket#readme",
   "dependencies": {
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "axios": "^0.21.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.13",
+    "multer": "^2.0.0-rc.1",
+    "nodemon": "^2.0.6",
+    "reactjs-popup": "^2.0.4",
+    "validator": "^13.1.17"
   }
 }
