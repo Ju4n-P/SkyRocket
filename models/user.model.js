@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema(
       max: 1024,
     },
 
-    postuls: {
+    likes: {
       type: [String]
     }
   },
