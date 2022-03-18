@@ -22,7 +22,7 @@ module.exports.checkUser = (req, res, next) => {
 };
 
 module.exports.requireAuth = (req, res, next) => {
-  const token = req.headers.authorization.split(' ')[1];
+  const token = req.headers.Authorization;
   if (token) {
     jwt.verify(token.replace(/^Bearer\s/, ''),process.env.TOKEN_SECRET,  async (err, decodedToken) => {
     // jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {

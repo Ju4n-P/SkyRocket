@@ -7,14 +7,14 @@ const userRoutes = require('./routes/user.routes');
 const postRoutes = require('./routes/post.routes');
 const {checkUser, requireAuth} = require('./middleware/auth.middleware');
 const cors = require('cors');
+const cors_proxy = require("cors-anywhere")
 
 const app = express();
 
 const corsOptions = {
   origin: true,
   credentials: true,
-  'allowedHeaders': ['sessionId', 'Content-Type'],
-  'exposedHeaders': ['sessionId'],
+  'allowedHeaders': ['Authorization', 'Content-Type'],
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': false
 }
