@@ -10,13 +10,15 @@ const cors = require('cors');
 
 const app = express();
 
+// app.use(cors())
+
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: true,
   credentials: true,
-  'allowedHeaders': ['sessionId', 'Content-Type'],
-  'exposedHeaders': ['sessionId'],
+  'allowedHeaders': ['Authorization', 'Content-Type'],    
+  'exposedHeaders': ['Authorization'],
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  'preflightContinue': false
+  'preflightContinue': true
 }
 app.use(cors(corsOptions));
 
@@ -37,5 +39,4 @@ app.use('/api/post', postRoutes);
 // server
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);
-  console.log(`On mango url ${process.env.DB_USER_PASS}`);
 })
