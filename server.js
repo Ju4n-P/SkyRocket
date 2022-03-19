@@ -13,7 +13,7 @@ const app = express();
 // app.use(cors())
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: true,
   credentials: true,
   'allowedHeaders': ['Authorization', 'Content-Type'],    
   'exposedHeaders': ['Authorization'],
@@ -39,5 +39,4 @@ app.use('/api/post', postRoutes);
 // server
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);
-  console.log(`On mango url ${process.env.DB_USER_PASS}`);
 })
