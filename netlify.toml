@@ -1,6 +1,4 @@
 
 [build]
-  functions = "src"
-
-[dev]
-  publish = "dist"
+    base = "dist/"
+    functions="src/api"
