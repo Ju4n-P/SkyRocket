@@ -25,5 +25,8 @@
     "nodemon": "^2.0.6",
     "reactjs-popup": "^2.0.4",
     "validator": "^13.1.17"
+  },
+  "engines": {
+    "node": "14.0"
   }
 }

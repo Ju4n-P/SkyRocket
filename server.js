@@ -37,6 +37,6 @@ app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes);
 
 // server
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT | 3000, () => {
   console.log(`Listening on port ${process.env.PORT}`);
 })
