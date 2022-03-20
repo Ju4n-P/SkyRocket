@@ -1,4 +1,6 @@
 
 [build]
     base = "dist/"
-    functions="src/api"
+    command = "npm run build"
+    functions = "lambda"
+    publish = "build"
