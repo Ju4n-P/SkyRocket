@@ -5,14 +5,15 @@ const pipeline = promisify(require("stream").pipeline);
 const { uploadErrors } = require("../utils/errors.utils");
 
 module.exports.uploadProfil = async (req, res) => {
-  try {
- if (
-	       req.file.detectedMimeType != "image/jpg" &&
-	       req.file.detectedMimeType != "image/png" &&
-	       req.file.detectedMimeType != "image/jpeg"
- )
-	  throw Error("invalid file");
-    if (req.file.size > 500000) throw Error("max size");
+ console.log(req.file)
+	try {
+	  if (
+		        req.file.mimetype != "image/jpg" &&
+		        req.file.mimetype != "image/png" &&
+		        req.file.mimetype != "image/jpeg"
+		      )
+			      throw Error("invalid file");
+		if (req.file.size > 500000) throw Error("max size");
   } catch (err) {
     const errors = uploadErrors(err);
     return res.status(201).json({ errors });
