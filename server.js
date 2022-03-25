@@ -16,7 +16,6 @@ const corsOptions = {
   origin: true,
   credentials: true,
   'allowedHeaders': ['Authorization', 'Content-Type'],    
-  'exposedHeaders': ['Authorization'],
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': true
 }
@@ -28,8 +27,13 @@ app.use(cookieParser());
 
 // jwt
 app.get('*', checkUser);
-app.get('/jwtid', requireAuth, (req, res) => {
-  res.status(200).send(res.locals.user._id)
+//userCheckToken
+app.get('/jwtid', requireAuth, (req, res ) => {
+  // res.status(200).send(res.locals.user._id)
+  // console.log("res.local " , res.locals)
+  // console.log("console log req",req)
+  
+  res.status(200).json({ user: req.currentUser })
 });
 
 // routes
@@ -37,6 +41,6 @@ app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes);
 
 // server
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Listening on port ${process.env.PORT}`);
 })
